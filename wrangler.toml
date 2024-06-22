@@ -1,14 +1,18 @@
 name = "r2-registry"
 
-workers_dev = true
+workers_dev = false
 main = "./index.ts"
 compatibility_date = "2022-04-18"
 compatibility_flags = ["streams_enable_constructors"]
 
 ## Production
 [env.production]
+name = "r2-registry-prod"
+routes = [
+  { pattern = "registry.joaquingimenez.com", custom_domain = true}
+]
 r2_buckets = [
-  { binding = "REGISTRY", bucket_name = "" }
+  { binding = "REGISTRY", bucket_name = "docker-registry-prod" }
 ]
 
 [env.production.vars]
