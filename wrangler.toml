@@ -9,7 +9,7 @@ compatibility_flags = ["streams_enable_constructors"]
 [env.production]
 name = "r2-registry-prod"
 routes = [
-  { pattern = "registry.joaquingimenez.com", custom_domain = true}
+  { pattern = "r.jg1.co", custom_domain = true}
 ]
 r2_buckets = [
   { binding = "REGISTRY", bucket_name = "docker-registry-prod" }
