@@ -1,19 +1,18 @@
 name = "r2-registry"
-
-# Custom Cloudflare domain for worker: 
-# routes = [
-#  { pattern = "your.custom.domain", custom_domain = true } 
-# ]
-
-workers_dev = true #set to false to disable the default Worker domain (applicable only if custom domain is used instead)
+workers_dev = false
 main = "./index.ts"
-compatibility_date = "2024-09-09"
+compatibility_date = "2025-03-02"
 compatibility_flags = ["nodejs_compat"]
 
 ## Production
 [env.production]
+name = "r2-registry-prod"
+routes = [
+  { pattern = "r.joaquingimenez.com", custom_domain = true},
+  { pattern = "r.jg1.co", custom_domain = true}
+]
 r2_buckets = [
-  { binding = "REGISTRY", bucket_name = "" }
+  { binding = "REGISTRY", bucket_name = "docker-registry-prod" }
 ]
 
 [env.production.vars]
